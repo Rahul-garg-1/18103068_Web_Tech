@@ -6,6 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+//        According to unicode system in Java, This is a dictionary order,
+//        in which the characters are compared,
+//        A < B < C < ... Y < Z < a < b < ... y < z
+
         Scanner sc = new Scanner(System.in);
         String s1;
         String s2;

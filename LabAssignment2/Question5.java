@@ -7,23 +7,6 @@ import java.util.Set;
 
 public class Main {
 
-    public static void intersection(int[] arr1,int[] arr2,int n1,int n2){
-        System.out.print("Intersection of the two sets is: [");
-        int[] mp = new int[11];
-        Arrays.fill(mp,0);
-        for(int i=0;i<n1;i++)
-            mp[arr1[i]]++;
-        for(int i=0;i<n2;i++){
-            if(mp[arr2[i]]>0) {
-                mp[arr2[i]] = 0;
-                System.out.print(arr2[i]);
-                if(i != n2-1)
-                    System.out.print(", ");
-            }
-        }
-        System.out.println("]");
-    }
-
     public static void union(int[] arr1,int[] arr2,int n1,int n2){
 
         int[] mp = new int[11];
@@ -45,7 +28,28 @@ public class Main {
             }
         }
         System.out.println("]");
+
     }
+
+    public static void intersection(int[] arr1,int[] arr2,int n1,int n2){
+
+        System.out.print("Intersection of the two sets is: [");
+        int[] mp = new int[11];
+        Arrays.fill(mp,0);
+        for(int i=0;i<n1;i++)
+            mp[arr1[i]]++;
+        for(int i=0;i<n2;i++){
+            if(mp[arr2[i]]>0) {
+                mp[arr2[i]] = 0;
+                System.out.print(arr2[i]);
+                if(i != n2-1)
+                    System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+        
+    }
+
     public static void complement(int[] arr1, int[] arr2, int n1, int n2){
 
         System.out.print("Complement of set1 is: [");
@@ -85,7 +89,11 @@ public class Main {
         int[] arr1 = new int[n1];
         System.out.println("Enter elements of array1: ");
         for(int i=0;i<n1;i++){
-            arr1[i]=sc.nextInt();
+            arr1[i] = sc.nextInt();
+            while (arr1[i] < 0 || arr1[i] > 10) {
+                System.out.println("Please enter a valid number between 0 and 10: ");
+                arr1[i] = sc.nextInt();
+            }
             s1.add(arr1[i]);
         }
 
@@ -94,9 +102,16 @@ public class Main {
         int[] arr2 = new int[n2];
         System.out.println("Enter elements of array2: ");
         for(int i=0;i<n2;i++){
-            arr2[i]=sc.nextInt();
+            arr2[i] = sc.nextInt();
+            while (arr2[i] < 0 || arr2[i] > 10) {
+                System.out.println("Please enter a valid number between 0 and 10 only: ");
+                arr2[i] = sc.nextInt();
+            }
             s2.add(arr2[i]);
         }
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
 
         long start = System.nanoTime();
         System.out.println("\n");
@@ -106,12 +121,12 @@ public class Main {
         intersection(arr1,arr2,n1,n2);
         complement(arr1,arr2,n1,n2);
 
-        System.out.print("\n");
+        System.out.println();
         long end = System.nanoTime();
         long elapsed = (end-start);
         System.out.println("Execution time in case of arrays is: "+elapsed+"ns");
 
-        start=System.nanoTime();
+        start = System.nanoTime();
         System.out.println("\n");
         System.out.println("Using Sets: ");
 
@@ -137,8 +152,8 @@ public class Main {
         System.out.print("Complement of set2: ");
         System.out.println(universal);
 
-        end=System.nanoTime();
-        elapsed=end-start;
+        end = System.nanoTime();
+        elapsed = end-start;
         System.out.println();
         System.out.println("Execution time in case of sets is: "+elapsed + "ns");
     }
