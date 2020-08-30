@@ -41,13 +41,11 @@ public class Main {
         for(int i=0;i<n2;i++){
             if(mp[arr2[i]]>0) {
                 mp[arr2[i]] = 0;
-                System.out.print(arr2[i]);
-                if(i != n2-1)
-                    System.out.print(", ");
+                System.out.print(arr2[i] + ", ");
             }
         }
         System.out.println("]");
-        
+
     }
 
     public static void complement(int[] arr1, int[] arr2, int n1, int n2){
