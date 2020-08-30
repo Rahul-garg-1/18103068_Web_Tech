@@ -16,7 +16,9 @@ public class Main {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the number: ");
         long n = sc.nextLong();
-        System.out.print("The hailstone sequence is: " + n + ", ");
+        System.out.print("The hailstone sequence is: " + n );
+        if(n != 1)
+            System.out.print(", ");
         while(n > 1) {
             if((n&1) == 0)
                 n /= 2;
