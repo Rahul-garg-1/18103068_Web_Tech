@@ -27,7 +27,7 @@ public class Main {
     public static HashSet<String> links = new HashSet<>();
     public static HashSet<String> faculties = new HashSet<>();
     public static Queue<String > pending = new LinkedList<>();
-    public static String[] keywords = {"https://pec.ac.in/aero-modelling-society-ams","https://pec.ac.in/pec_new/user", "events", "#", "jpg","JPG", "jpeg", "JPEG" , "png", "PNG", "pdf", "PDF", "donations", "tnp", "doc","DOC", "jobs", "tenders", "xlsx", "ppt"};
+    public static String[] keywords = {"jpg","JPG", "jpeg", "JPEG" , "png", "PNG", "pdf", "PDF", "doc", "DOC", "xlsx", "ppt", "events", "#", "donations", "tnp",  "jobs", "tenders"};
     public static String[] keys = {"faculty/aero", "faculty/applied-sciences", "faculty/civil", "faculty/cse", "faculty/ee", "faculty/ece", "faculty/me", "faculty/metta", "faculty/pie"};
     public static Set<Object[]> tags = new HashSet<>();
     public static Set<Object[]> fac = new HashSet<>();
@@ -61,13 +61,13 @@ public class Main {
 
                     }
                 } catch (HttpStatusException e){
-                    System.out.println("the url is not valid..!!");
+                    System.out.println("Error 404...!!");
                 } catch (MalformedURLException e){
-                    System.out.println("url is invalid");
+                    System.out.println("The URL is Malformed...!!");
                 } catch(IOException e){
-                    System.out.println("Invalid url");
+                    System.out.println("The URL is invalid...!!");
                 } catch (Exception e){
-                    System.out.println("Invalid");
+                    System.out.println("Invalid URL.");
                 }
 
             }
@@ -87,7 +87,7 @@ public class Main {
         } catch (HttpStatusException e) {
             System.out.println("Connection timed out...!!");
         } catch(Exception e){
-            System.out.println("Invalid url...!!");
+            System.out.println("Invalid URL...!!");
         }
     }
 
@@ -184,6 +184,6 @@ public class Main {
             }
         }
         addData();
-        System.out.println("The faculty info had been filled successfully.");
+        System.out.println("The Faculty info had been filled successfully.");
     }
 }
